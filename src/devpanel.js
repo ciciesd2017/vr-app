@@ -76,6 +76,7 @@ export class DevPanel {
           </div>
           <div style="margin-top:6px;display:flex;gap:6px;">
             <button id="btn-model-clear" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#a22;">清空</button>
+            <button id="btn-model-remove-last" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#a22;">清空</button>
             <button id="btn-anim-toggle" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#226;">動畫 播/停</button>
           </div>
         </div>
@@ -144,6 +145,10 @@ export class DevPanel {
         if (url && this.models?.add) this.models.add(url);
       });
   
+      
+      this.$("#btn-model-remove-last").addEventListener("click", () => {
+        if (this.models?.removeLast) this.models.removeLast();
+      });
       this.$("#btn-model-clear").addEventListener("click", () => {
         if (this.models?.clear) this.models.clear();
       });
