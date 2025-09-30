@@ -3,9 +3,7 @@ import { VRButton } from 'https://unpkg.com/three@0.161.0/examples/jsm/webxr/VRB
 
 export function mountVR() {
     const sessionInit = {
-        optionalFeatures: ['local-floor'],
-        // optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers', 'dom-overlay'],
-        // domOverlay: { root: document.body }, // 或者 document.getElementById('app-root')
+        optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers', 'dom-overlay'],
     };
 
     document.body.appendChild(VRButton.createButton(renderer, sessionInit)); //sessionInit
