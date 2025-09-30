@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Three.js VR App</title>
+    <!-- <style>body{margin:0;overflow:hidden}#ui{position:fixed;left:12px;top:12px;z-index:10;display:grid;gap:8px}</style> -->
+    <link rel='stylesheet' href='style.css'>
+  </head>
+  <body>
+      <!-- <div id="ui"><button id="btnMic" class="btn">🎙️ 語音：關</button></div>
+      <div id="asr" class="pill" aria-live="polite" style="grid-column: 1 / -1;">（語音辨識結果顯示在此）</div> -->
+    
+      <div id="ui" style="visibility:hidden">
+        <div class="pill" aria-live="polite" style="grid-column: 1 / -1;">－ 環境 －</div>
+        <button id="btnBg_paris" class="btn">巴黎</button>
+        <button id="btnBg_alps" class="btn">草地</button>
+        <button id="btnBg_chess" class="btn">西洋棋</button>
+        <button id="btnBg_starlight" class="btn">星空</button>
+        <button id="btnBg_sunrise" class="btn">雪地</button>
+
+        <div class="pill" aria-live="polite" style="grid-column: 1 / -1;">－ 模型 －</div>
+        <button id="btnModel_TRex" class="btn">暴龍</button>
+        <button id="btnModel_horse" class="btn">馬</button>
+        <button id="btnModel_cat" class="btn">貓</button>
+        <button id="btnModel_plant" class="btn">盆栽</button>
+        <button id="btnModel_duck" class="btn">小鴨</button>
+        <button id="btnModel_dog" class="btn">柴犬</button>
+        <button id="btnModel_clear" class="btn">清空新添加模型</button>
+        <button id="btnModel_removeLast" class="btn">移除最後添加的模型</button>
+        
+        <div class="pill" aria-live="polite" style="grid-column: 1 / -1;">－ 循環切換 －</div>
+          <button id="btnBg" class="btn">切換天空</button>
+          <button id="btnModel" class="btn">切換模型</button>
+          <!-- <button id="btnAddAll" class="btn">載入全部模型（列）</button> -->
+        
+          <div class="pill" aria-live="polite" style="grid-column: 1 / -1;">－ 動畫 －</div>
+          <button id="btnPlayAll" class="btn">播放全部動畫</button>
+          <button id="btnPauseAll" class="btn">全部暫停</button>
+          <button id="btnResumeAll" class="btn">全部續播</button>
+          <button id="btnStopAll" class="btn">全部停止</button>
+          <!-- <button id="btnPlay3x" class="btn">動畫#0 播放 3 次</button>
+          <button id="btnSeek0" class="btn">動畫#0 回到 0</button> -->
+        
+          <div class="pill" aria-live="polite" style="grid-column: 1 / -1;">－ 音樂 －</div>
+          <button id="btnPlayOrPause" class="btn">音樂 播/暫</button>
+          <button id="btnStopMusic" class="btn">音樂 停止</button>
+          <button id="btnSwitchToMusic" class="btn">下一首</button>
+          
+          <div class="pill" aria-live="polite" style="grid-column: 1 / -1;">－ 影片 －</div>
+          <button id="btnPlayVideo" class="btn">開啟影片</button>
+          <button id="btnCloseVideo" class="btn">關閉影片</button>
+        </div>
+        <script type="importmap">
+              {
+                "imports": {
+                  "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+                  "three/examples/": "https://unpkg.com/three@0.161.0/examples/"
+                }
+              }
+              </script>
+      <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

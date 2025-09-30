@@ -1,0 +1,80 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: #0b0d10;
+  color: #e5e7eb;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+}
+
+#ui {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 8px;
+  z-index: 10;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid #374151;
+  background: #111827;
+  color: #e5e7eb;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+}
+
+.btn:hover {
+  background: #1f2937;
+}
+
+.tag {
+  color: #e5e7eb;
+  border: 1px solid #374151;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+  background: #111827;
+  padding: 10px 14px;
+  border-radius: 12px;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  opacity: .65;
+  font-size: 12px;
+}
+
+#loading {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, .35);
+  backdrop-filter: blur(2px);
+  z-index: 20;
+  font-size: 14px;
+}
+
+#loading.hidden {
+  display: none;
+}
+
+.pose-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; }
+
+
+#VRButton {
+  position: fixed !important;
+  /* 永遠固定在視窗，不會被場景推擠 */
+  top: 20px !important;
+  /* 自行調整位置 */
+  right: 20px !important;
+  left: auto !important;
+  bottom: auto !important;
+  z-index: 9999 !important;
+  /* 保證在最上面 */
+  transform: none !important;
+  /* 取消內建的 translate(-50%, 0) */
+}
