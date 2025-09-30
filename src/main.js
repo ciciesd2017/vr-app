@@ -41,28 +41,12 @@ bindUI({
   lists: { SKYBOXES, MODEL_URLS },
 });
 
-// 視窗尺寸
-// addEventListener("resize", () => {
-//   camera.aspect = innerWidth / innerHeight;
-//   camera.updateProjectionMatrix();
-//   renderer.setSize(innerWidth, innerHeight);
-// });
-
 function onWindowResize() {
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
 renderer.xr.addEventListener('sessionstart', () => {
   controls && (controls.enabled = false);
-  // 確保進入 VR 時真的在跑
-  // renderer.setAnimationLoop((time, frame) => {
-  //   const delta = clock.getDelta();
-  //   anim.update(delta);
-  //   devPanel.update?.();
-  //   controls?.update?.();
-  //   sky?.tickFollowCamera?.();
-  //   renderer.render(scene, camera);
-  // });
   onWindowResize();
 });
 
@@ -91,10 +75,10 @@ const devPanel = new DevPanel({
 // 主迴圈
 const clock = new THREE.Clock();
 renderer.setAnimationLoop((time, frame) => {
-  
+
   const delta = clock.getDelta();
   anim.update(delta);
-  
+
   // 更新面板統計
   devPanel.update();
 
@@ -102,4 +86,3 @@ renderer.setAnimationLoop((time, frame) => {
   sky.tickFollowCamera();
   renderer.render(scene, camera);
 });
-

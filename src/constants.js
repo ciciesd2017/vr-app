@@ -31,14 +31,14 @@ export const SKYBOXES = [
 ];
 
 export const ALL_MODELS = [
-  `${BASE_ASSETS}assets/models/BG-60x100.glb`, // ground
-  // `${BASE_ASSETS}assets/models/MarsPlanet.glb`, // ground
-  `${BASE_ASSETS}assets/models/tyrannosaurus_rex_lowpoly.glb`,
-  `${BASE_ASSETS}assets/models/horse_statue_01_4k.gltf/horse_statue_01_4k.gltf`,
-  `${BASE_ASSETS}assets/models/concrete_cat_statue_4k.gltf/concrete_cat_statue_4k.gltf`,
-  `${BASE_ASSETS}assets/models/potted_plant_02_4k.gltf/potted_plant_02_4k.gltf`,
-  `${BASE_ASSETS}assets/models/rubber_duck_toy_4k.gltf/rubber_duck_toy_4k.gltf`,
-  `${BASE_ASSETS}assets/models/shiba.glb`,
+    `${BASE_ASSETS}assets/models/BG-60x100.glb`, // ground
+    `${BASE_ASSETS}assets/models/cat.glb`, // ground
+    `${BASE_ASSETS}assets/models/t_rex.glb`,
+    `${BASE_ASSETS}assets/models/horse.glb`,
+    `${BASE_ASSETS}assets/models/cat.glb`,
+    `${BASE_ASSETS}assets/models/plant.glb`,
+    `${BASE_ASSETS}assets/models/duck.glb`,
+    `${BASE_ASSETS}assets/models/shiba.glb`,
 ];
 export const GROUND_MODEL_URL = ALL_MODELS[0];
 export const MODEL_URLS = ALL_MODELS.slice(1);

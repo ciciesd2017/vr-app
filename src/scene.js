@@ -15,7 +15,7 @@ export const scene = new THREE.Scene();
 scene.background = new THREE.Color(CANVAS_BG_COLOR);
 
 export const renderer = new THREE.WebGLRenderer({
-  // antialias: true, 
+  // antialias: true,
   // alpha: false,
   antialias: false,
   powerPreference: "high-performance",
@@ -23,17 +23,12 @@ export const renderer = new THREE.WebGLRenderer({
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setPixelRatio(Math.min(2, window.devicePixelRatio)); // 稍提清晰度、避免過高
 renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.NoToneMapping;
+renderer.toneMappingExposure = 1.6;
+renderer.shadowMap.enabled = true;
 renderer.xr.enabled = true; // 已在 mountVR 再保險設一次也可
 document.body.appendChild(renderer.domElement);
 
-// renderer.outputColorSpace = THREE.SRGBColorSpace;
-// renderer.toneMapping = THREE.NoToneMapping;
-// renderer.toneMappingExposure = 1.6;
-// renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-// renderer.setSize(innerWidth, innerHeight);
-// renderer.xr.enabled = true;
-// renderer.shadowMap.enabled = true;
-// document.body.appendChild(renderer.domElement);
 
 export const camera = new THREE.PerspectiveCamera(
   CAMERA_FOV,
