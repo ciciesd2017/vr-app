@@ -60,8 +60,8 @@ export function createControllers(onSelectEnd) {
             console.warn(e);
         }
     };
-    c0.addEventListener('selectstart', handler);
-    c1.addEventListener('selectstart', handler);
+    c0.addEventListener('selectstart', onSelectEnd);
+    c1.addEventListener('selectstart', onSelectEnd);
 }
 
 // 在初始化 XR（或 createControllers）後執行
