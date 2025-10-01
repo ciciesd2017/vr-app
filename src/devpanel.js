@@ -75,8 +75,9 @@ export class DevPanel {
             <button id="btn-model-add" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#2a2;">新增</button>
           </div>
           <div style="margin-top:6px;display:flex;gap:6px;">
-            <button id="btn-model-clear" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#a22;">清空</button>
-            <button id="btn-model-remove-last" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#a22;">清空</button>
+            <button id="btn-model-clear" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#a22;">清空全部</button>
+            <button id="btn-model-remove-last" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#a22;">移除最後</button>
+            <button id="btn-model-add-all" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#226;">載入全部</button>
             <button id="btn-anim-toggle" style="all:unset;cursor:pointer;padding:6px 10px;border-radius:6px;background:#226;">動畫 播/停</button>
           </div>
         </div>
@@ -150,6 +151,9 @@ export class DevPanel {
         });
         this.$('#btn-model-clear').addEventListener('click', () => {
             if (this.models?.clear) this.models.clear();
+        });
+        this.$('#btn-model-add-all').addEventListener('click', () => {
+            if (this.models?.addAllRow) this.models.addAllRow();
         });
 
         this.$('#btn-anim-toggle').addEventListener('click', () => {

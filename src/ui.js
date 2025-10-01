@@ -13,12 +13,13 @@ export function bindUI({ sky, models, anim, audioPlayer, videoPanel, lists }) {
   $("btnModel_plant")?.addEventListener("click", () => models.add(lists.MODEL_URLS[4]));
   $("btnModel_duck")?.addEventListener("click", () => models.add(lists.MODEL_URLS[5]));
   $("btnModel_dog")?.addEventListener("click", () => models.add(lists.MODEL_URLS[6]));
+  $('btnModel_addAll')?.addEventListener('click', () => models.addAllRow());
   $("btnModel_clear")?.addEventListener("click", () => models.clear());
   $("btnModel_removeLast")?.addEventListener("click", () => models.removeLast());
-  
+
   $("btnBg")?.addEventListener("click", () => sky.next(lists.SKYBOXES));
   $("btnModel")?.addEventListener("click", () => models.next(lists.MODEL_URLS));
-  
+
   $("btnPlayAll")?.addEventListener("click", () => anim.playAll());
   $("btnPauseAll")?.addEventListener("click", () => anim.pauseAll());
   $("btnResumeAll")?.addEventListener("click", () => anim.resumeAll());

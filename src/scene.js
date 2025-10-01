@@ -23,7 +23,7 @@ export const renderer = new THREE.WebGLRenderer({
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setPixelRatio(Math.min(2, window.devicePixelRatio)); // 稍提清晰度、避免過高
 renderer.setSize(innerWidth, innerHeight);
-renderer.toneMapping = THREE.NoToneMapping;
+// renderer.toneMapping = THREE.NoToneMapping;
 renderer.toneMappingExposure = 1.6;
 renderer.shadowMap.enabled = true;
 renderer.xr.enabled = true; // 已在 mountVR 再保險設一次也可

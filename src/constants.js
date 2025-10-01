@@ -9,6 +9,7 @@ export const CAMERA_NEAR = 0.01;
 export const CAMERA_FAR = 1000;
 export const SKY_RADIUS = 60;
 export const DEFAULT_MODEL_TARGET_SIZE = 1.2;
+// export const CONTROLS_TARGET = { x: 0, y: 1.4, z: 0 };
 export const CONTROLS_TARGET = { x: 0, y: 1.4, z: 0 };
 export const USER_HEAD_HEIGHT = 1.6;
 
@@ -22,12 +23,12 @@ export const TEX_MAG_FILTER = "LinearFilter";
 export const BASE_ASSETS = (window.__vite__ ? import.meta.env.BASE_URL : './');
 
 export const SKYBOXES = [
-  // { url: `${BASE_ASSETS}assets/textures/MarsMap.jpg`, mode: "stereoTB" },
-  { url: `${BASE_ASSETS}assets/textures/paris.jpg`, mode: "stereoTB" },
-  { url: `${BASE_ASSETS}assets/textures/alps_field.jpg`, mode: "stereoTB" },
-  { url: `${BASE_ASSETS}assets/textures/chess-pano-4k.jpg`, mode: "stereoTB" },
-  { url: `${BASE_ASSETS}assets/textures/rogland_clear_night.jpg`, mode: "stereoTB" },
-  { url: `${BASE_ASSETS}assets/textures/stierberg_sunrise.jpg`, mode: "stereoTB" },
+    // { url: `${BASE_ASSETS}assets/textures/allmodels.png`, mode: 'stereoTB' },
+    { url: `${BASE_ASSETS}assets/textures/paris.jpg`, mode: 'stereoTB' },
+    { url: `${BASE_ASSETS}assets/textures/alps_field.jpg`, mode: 'stereoTB' },
+    { url: `${BASE_ASSETS}assets/textures/chess-pano-4k.jpg`, mode: 'stereoTB' },
+    { url: `${BASE_ASSETS}assets/textures/rogland_clear_night.jpg`, mode: 'stereoTB' },
+    { url: `${BASE_ASSETS}assets/textures/stierberg_sunrise.jpg`, mode: 'stereoTB' },
 ];
 
 export const ALL_MODELS = [
@@ -39,6 +40,7 @@ export const ALL_MODELS = [
     `${BASE_ASSETS}assets/models/plant.glb`,
     `${BASE_ASSETS}assets/models/duck.glb`,
     `${BASE_ASSETS}assets/models/shiba.glb`,
+    // `${BASE_ASSETS}assets/models/all2.glb`,
 ];
 export const GROUND_MODEL_URL = ALL_MODELS[0];
 export const MODEL_URLS = ALL_MODELS.slice(1);

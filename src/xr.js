@@ -1,12 +1,17 @@
 import { renderer, camera, scene, THREE } from './scene.js';
 import { VRButton } from 'https://unpkg.com/three@0.161.0/examples/jsm/webxr/VRButton.js';
 
-export function mountVR() {
+export function mountVR({ domOverlayRoot } = {}) {
+    // const sessionInit = {
+    //     optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers', 'dom-overlay'],
+    // };
+    // document.body.appendChild(VRButton.createButton(renderer, sessionInit)); //sessionInit
+    // renderer.xr.enabled = true;
     const sessionInit = {
         optionalFeatures: ['local-floor', 'bounded-floor', 'hand-tracking', 'layers', 'dom-overlay'],
+        ...(domOverlayRoot ? { domOverlay: { root: domOverlayRoot } } : {}),
     };
-
-    document.body.appendChild(VRButton.createButton(renderer, sessionInit)); //sessionInit
+    document.body.appendChild(VRButton.createButton(renderer, sessionInit));
     renderer.xr.enabled = true;
 }
 
@@ -46,6 +51,17 @@ export function createControllers(onSelectEnd) {
     scene.add(c0, c1);
     c0.addEventListener('selectend', onSelectEnd);
     c1.addEventListener('selectend', onSelectEnd);
+
+
+    const handler = () => {
+        try {
+            onSelectEnd && onTrigger();
+        } catch (e) {
+            console.warn(e);
+        }
+    };
+    c0.addEventListener('selectstart', handler);
+    c1.addEventListener('selectstart', handler);
 }
 
 // 在初始化 XR（或 createControllers）後執行
@@ -55,6 +71,26 @@ function bindPanelHotkeyInXR(devPanel) {
     [left, right].forEach((ctrl) => {
         if (!ctrl) return;
         ctrl.addEventListener('squeezestart', () => devPanel.toggle());
+    });
+}
+
+/**
+ * 綁定 XR session 狀態以顯示/隱藏 DOM Overlay（vrHud）
+ */
+export function bindXRHudVisibility({ hudEl }) {
+    if (!hudEl) return;
+
+    // 進入 XR
+    renderer.xr.addEventListener('selectstart', () => {
+        const session = renderer.xr.getSession?.();
+        // 若支援 DOM Overlay，顯示 HUD；否則可維持隱藏（避免在 HMD 中看不到/不能點）
+        const hasDomOverlay = !!session?.domOverlayState;
+        hudEl.style.display = hasDomOverlay ? 'block' : 'none';
+    });
+
+    // 離開 XR
+    renderer.xr.addEventListener('sessionend', () => {
+        hudEl.style.display = 'none';
     });
 }
 
