@@ -33,19 +33,20 @@ document.getElementById('btnToggleDevPanelVR')?.addEventListener('click', () => 
 });
 
 // 控制器 Trigger -> 切換資訊面板
-createControllers({
-  onTrigger: () => devPanel.toggle?.(),
-});
+// createControllers({
+//   onTrigger: () => devPanel.toggle?.(),
+// });
 
 // 進入/離開 XR 時，自動顯示/隱藏 HUD
 bindXRHudVisibility({ hudEl: vrHud });
 
-// // XR Controller 事件
-// createControllers((event) => {
-//     const hand = (event.data && event.data.handedness) || 'unknown';
-//     if (hand === 'left') models.next(MODEL_URLS);
-//     else sky.next(SKYBOXES);
-// });
+// XR Controller 事件
+createControllers((event) => {
+    const hand = (event.data && event.data.handedness) || 'unknown';
+    if (hand === 'left') models.next(MODEL_URLS);
+    else sky.next(SKYBOXES);
+    devPanel.toggle?.(),
+});
 
 // UI 綁定
 bindUI({

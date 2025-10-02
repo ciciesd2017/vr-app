@@ -52,7 +52,6 @@ export function createControllers(onSelectEnd) {
     c0.addEventListener('selectend', onSelectEnd);
     c1.addEventListener('selectend', onSelectEnd);
 
-
     const handler = () => {
         try {
             onSelectEnd && onTrigger();
