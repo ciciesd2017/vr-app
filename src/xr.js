@@ -51,17 +51,28 @@ export function createControllers(onSelectEnd) {
     scene.add(c0, c1);
     c0.addEventListener('selectend', onSelectEnd);
     c1.addEventListener('selectend', onSelectEnd);
-
-    const handler = () => {
-        try {
-            onSelectEnd && onTrigger();
-        } catch (e) {
-            console.warn(e);
-        }
-    };
-    c0.addEventListener('selectstart', onSelectEnd);
-    c1.addEventListener('selectstart', onSelectEnd);
 }
+
+
+// export function createControllers(onSelectEnd) {
+//     const c0 = renderer.xr.getController(0);
+//     const c1 = renderer.xr.getController(1);
+//     c0.add(buildRay());
+//     c1.add(buildRay());
+//     scene.add(c0, c1);
+//     c0.addEventListener('selectend', onSelectEnd);
+//     c1.addEventListener('selectend', onSelectEnd);
+
+//     const handler = () => {
+//         try {
+//             onSelectEnd && onTrigger();
+//         } catch (e) {
+//             console.warn(e);
+//         }
+//     };
+//     c0.addEventListener('selectstart', onSelectEnd);
+//     c1.addEventListener('selectstart', onSelectEnd);
+// }
 
 // 在初始化 XR（或 createControllers）後執行
 function bindPanelHotkeyInXR(devPanel) {

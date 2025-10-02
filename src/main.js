@@ -27,6 +27,19 @@ models.addGround(GROUND_MODEL_URL);
 sky.next(SKYBOXES);
 models.addAllRow(MODEL_URLS);
 
+
+// 建立 DevPanel（預設隱藏，按 M 顯示/隱藏）
+const devPanel = new DevPanel({
+  renderer,
+  sky,
+  models,
+  audioPlayer,
+  videoPanel,
+  anim,
+  lists: { SKYBOXES, MODEL_URLS },
+});
+
+
 // VR 內按鈕 -> 切換資訊面板
 document.getElementById('btnToggleDevPanelVR')?.addEventListener('click', () => {
     devPanel.toggle?.();
@@ -34,7 +47,7 @@ document.getElementById('btnToggleDevPanelVR')?.addEventListener('click', () => 
 
 // 控制器 Trigger -> 切換資訊面板
 // createControllers({
-//   onTrigger: () => devPanel.toggle?.(),
+//     onTrigger: () => devPanel.toggle?.(),
 // });
 
 // 進入/離開 XR 時，自動顯示/隱藏 HUD
@@ -45,7 +58,7 @@ createControllers((event) => {
     const hand = (event.data && event.data.handedness) || 'unknown';
     if (hand === 'left') models.next(MODEL_URLS);
     else sky.next(SKYBOXES);
-    devPanel.toggle?.(),
+    devPanel.toggle?.();
 });
 
 // UI 綁定
@@ -76,16 +89,6 @@ renderer.xr.addEventListener('sessionend', () => {
 
 window.addEventListener('resize', onWindowResize);
 
-// 建立 DevPanel（預設隱藏，按 M 顯示/隱藏）
-const devPanel = new DevPanel({
-    renderer,
-    sky,
-    models,
-    audioPlayer,
-    videoPanel,
-    anim,
-    lists: { SKYBOXES, MODEL_URLS },
-});
 
 // 主迴圈
 const clock = new THREE.Clock();
