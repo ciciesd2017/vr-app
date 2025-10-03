@@ -37,6 +37,7 @@ export const ALL_MODELS = [
     `${BASE_ASSETS}assets/models/horse.glb`,
     `${BASE_ASSETS}assets/models/cat.glb`,
     `${BASE_ASSETS}assets/models/plant.glb`,
+    `${BASE_ASSETS}assets/models/20261003.glb`,
     `${BASE_ASSETS}assets/models/duck.glb`,
     `${BASE_ASSETS}assets/models/shiba.glb`,
 ];

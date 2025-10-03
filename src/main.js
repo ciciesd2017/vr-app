@@ -22,10 +22,15 @@ const voice = new VoiceController({ sky, models, anim, audioPlayer, videoPanel, 
 // mountVR();
 // 建立 DOM Overlay root 並掛到 XR
 const vrHud = document.getElementById('vrHud');
-mountVR({ domOverlayRoot: vrHud });
+const vrHud2 = document.getElementById('vr-overlay');
+// mountVR({ domOverlayRoot: vrHud });
+mountVR({ domOverlayRoot: vrHud2 });
 models.addGround(GROUND_MODEL_URL);
 sky.next(SKYBOXES);
 models.addAllRow(MODEL_URLS);
+const panel = new THREE.Mesh(new THREE.PlaneGeometry(1, 0.5), new THREE.MeshBasicMaterial({ color: 0x222222 }));
+panel.position.set(0, 1.5, -2); // 放在玩家前方
+scene.add(panel);
 
 // 建立 DevPanel（預設隱藏，按 M 顯示/隱藏）
 const devPanel = new DevPanel({
@@ -40,6 +45,11 @@ const devPanel = new DevPanel({
 
 // VR 內按鈕 -> 切換資訊面板
 document.getElementById('btnToggleDevPanelVR')?.addEventListener('click', () => {
+    devPanel.toggle?.();
+});
+
+// VR 內按鈕 -> 切換資訊面板
+document.getElementById('menuBtn')?.addEventListener('click', () => {
     devPanel.toggle?.();
 });
 
