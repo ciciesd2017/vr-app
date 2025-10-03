@@ -37,7 +37,6 @@ const devPanel = new DevPanel({
     anim,
     lists: { SKYBOXES, MODEL_URLS },
 });
-devPanel.toggle();
 
 // VR 內按鈕 -> 切換資訊面板
 document.getElementById('btnToggleDevPanelVR')?.addEventListener('click', () => {
@@ -50,14 +49,16 @@ document.getElementById('btnToggleDevPanelVR')?.addEventListener('click', () => 
 // });
 
 // 進入/離開 XR 時，自動顯示/隱藏 HUD
-bindXRHudVisibility({ hudEl: vrHud });
+// bindXRHudVisibility({ hudEl: vrHud });
+// devPanel.toggle();
 
 // XR Controller 事件
 createControllers((event) => {
     const hand = (event.data && event.data.handedness) || 'unknown';
     if (hand === 'left') models.next(MODEL_URLS);
     else sky.next(SKYBOXES);
-    devPanel.toggle?.();
+    devPanel.toggle();
+    bindXRHudVisibility({ hudEl: vrHud });
 });
 
 // UI 綁定
