@@ -27,18 +27,17 @@ models.addGround(GROUND_MODEL_URL);
 sky.next(SKYBOXES);
 models.addAllRow(MODEL_URLS);
 
-
 // 建立 DevPanel（預設隱藏，按 M 顯示/隱藏）
 const devPanel = new DevPanel({
-  renderer,
-  sky,
-  models,
-  audioPlayer,
-  videoPanel,
-  anim,
-  lists: { SKYBOXES, MODEL_URLS },
+    renderer,
+    sky,
+    models,
+    audioPlayer,
+    videoPanel,
+    anim,
+    lists: { SKYBOXES, MODEL_URLS },
 });
-
+devPanel.toggle();
 
 // VR 內按鈕 -> 切換資訊面板
 document.getElementById('btnToggleDevPanelVR')?.addEventListener('click', () => {
@@ -88,7 +87,6 @@ renderer.xr.addEventListener('sessionend', () => {
 });
 
 window.addEventListener('resize', onWindowResize);
-
 
 // 主迴圈
 const clock = new THREE.Clock();
